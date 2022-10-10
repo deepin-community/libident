@@ -1,0 +1,25 @@
+Original author:
+  Peter Eriksson <pen@lysator.liu.se> (1992-1997)
+
+
+Contributors:
+  Pär Emanuelsson <pell@lysator.liu.se> (1993),
+
+  Paul Slootman <paul@debian.org> :
+   - in.identtestd man page.
+
+  Rémi Denis-Courmont <rdenis@simphalempin.com> (2003-2004) :
+   - IPv6-compatible code and APIs,
+   - autotools usage.
+
+  Nicolas Rachinsky <nicolas@rachinsky.de> (2004) :
+   - FreeBSD bugfix.
+
+
+Maintainer:
+  Peter Eriksson <pen@lysator.liu.se> :
+   - up to release 0.22
+
+  Rémi Denis-Courmont <rdenis@simphalempin.com> :
+   - as of release 0.30
+

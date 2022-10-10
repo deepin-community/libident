@@ -1,0 +1,37 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Sun, 2 Jan 2022 14:12:37 -0500
+Subject: PH patch id_parse.c
+
+---
+ id_parse.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/id_parse.c b/id_parse.c
+index 641bba1..ee3585f 100644
+--- a/id_parse.c
++++ b/id_parse.c
+@@ -3,6 +3,7 @@
+ **
+ ** Author: Peter Eriksson <pen@lysator.liu.se>
+ ** Fiddling: Pär Emanuelsson <pell@lysator.liu.se>
++** Also by: Philip Hazel <ph10@cus.cam.ac.uk>
+ */
+ 
+ #if HAVE_CONFIG_H
+@@ -89,6 +90,16 @@ int id_parse (ident_t *id, struct timeval *timeout, int *lport, int *fport,
+ 	errno = ENOTCONN;
+ 	return -1;
+     }
++
++    /******/
++    /* The original code did not contain this next statement. It was inserted by
++    PH to fix a bug. If the buffer gets entirely filled, the loop above exits
++    with the value of "pos" one greater than the buffer size. However, the code
++    below assumes that "pos" is pointing to the final character. */
++
++    if (pos >= sizeof(id->buf))
++        return 0;  /* Not properly terminated */
++    /******/
+     
+     if (id->buf[pos] != '\n' && id->buf[pos] != '\r')
+ 	return 0;		/* Not properly terminated string */

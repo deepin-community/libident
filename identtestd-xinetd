@@ -1,0 +1,15 @@
+# default: off
+# description: An Ident lookup test server to be run from the xinetd
+#              super-server.
+
+service identtestd
+{
+	TYPE		= UNLISTED
+	socket_type	= stream
+	port		= 9999
+	protocol	= tcp
+	user		= nobody
+	server		= /usr/local/sbin/in.identtestd
+	wait		= no
+	disable		= yes
+}                                                                               

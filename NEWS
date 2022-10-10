@@ -1,0 +1,27 @@
+libident 0.32
+--------------
+# A serious portability fix for *BSD and Solaris was submitted by:
+  Nicolas Rachinsky <nicolas@rachinsky.de>.
+
+# Build of sample programs ("testers") was fixed.
+
+
+libident 0.31
+--------------
+# libtool is used instead of ranlib, so that a shared library can be built
+  automatically if the OS supports it.
+
+
+libident 0.30
+--------------
+#  This new release is meant to provide Internet Protocol version independant
+  support: libident can now handles IPv6 addresses and perform queries over
+  IPv6, as well as IPv4. The IP version is selected automatically.
+
+# I also have ported the library to the GNU autotools (autoconf & automake),
+  and removed support for non ANSI C platforms. If you use such an old system,
+  do NOT update. It doesn't support IPv6 anyway.
+
+-- 
+Rémi Denis-Courmont <rdenis@simphalempin.com>, 18 January 2004
+

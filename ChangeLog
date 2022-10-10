@@ -1,0 +1,79 @@
+2003-08-11 12:03  Rémi Denis-Courmont <rdenis@simphalempin.com>
+
+	* ident-tester.c(gethost): use socklen_t as appropriate,
+	* libtool: added support for building of a shared library.
+
+
+2003-08-11  8:07  Rémi Denis-Courmont <rdenis@simphalempin.com>
+
+	* identtestd-xinetd: added template xinetd configuration for
+	in.identtestd,
+	* in.identtestd.8: added man page from Debian package,
+	* ident.3: updated to reflect API changes.
+
+
+2003-08-10 19:21  Rémi Denis-Courmont <rdenis@simphalempin.com>
+
+	* ident.h, ident.c, id_open.c:
+	- support for IPv6 through socket address family semi-independant
+	  functions, IPv4-only functions reimplemented on top of that for
+	  backward compatibility,
+	- removed ugly hacks for non-ANSI C compilers,
+	* id_parse.c:
+	- applied "libident bug causes SEGV" fix reported on exim mailing list,
+	* ident-tester.c, lookup-tester.c:
+	- ported to new socket address family-independant API.
+	* configure.ac, Makefile.am:
+	- added, now use GNU autoconf & automake,
+	* INSTALL: replaced with standard GNU Automake INSTALL,
+	* AUTHOR: added,
+	* COPYING, ChangeLog: added, filled with infos formerly in README.
+
+
+1997-01-17   Peter Eriksson
+
+	* Release 0.21:
+	- A couple of minor fixes (mainly support for 2.11BSD).
+
+
+1996-11-13   Peter Eriksson
+
+	* Release 0.20:
+	- Some cleanup of the distribution,
+	- some bug fixes in the ident-tester.c source.
+	Perhaps it should be called 1.0? (Perhaps it should use
+	GNU Autoconf...)
+
+
+1995-10-05   Peter Eriksson
+
+	* Release 0.18:
+	- Added some bug fixes and improvements from
+	Jean-Philippe Martin-Flatin (syj@ecmwf.int).
+
+
+1994-11-29   Peter Eriksson
+
+	- Added the copyright notice at the top of README.
+
+
+1994-10-18   Peter Eriksson
+
+	* ident.h: Updated the ident.h header file to work with Linux,
+	* Makefile: reorganized the Makefile for easier compilation...
+
+
+1993-08-13   Michael Kuch <kuch@mailserv.zdv.uni-tuebingen.de>
+
+	- Support for NextStep 3.1 added.
+
+
+1993-04-04   Pär Emanuelsson <pell@lysator.liu.se>
+
+	- This library now contains some higher-level routines, as well
+	as a similar test program to test these (lookup-tester).
+
+
+1992-08-01   Peter Eriksson <pen@lysator.liu.se>, 1 Aug 1992
+
+	* README: Supposedly initial release.

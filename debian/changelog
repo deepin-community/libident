@@ -1,0 +1,196 @@
+libident (0.32-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 19 May 2022 10:12:21 +0800
+
+libident (0.32-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #1002955)
+    + Migrate to autotools buildsystem. (Closes: #944561)
+  * Refresh packaging:
+    + Bump Standards-Version to 4.6.0.
+    + Bump debhelper compat to v13.
+  * debian/control:
+    + Build-depends on debhelper-compat (= 13).
+    + Add homepage field. (Closes: #231723)
+    + Add Vcs-* fields.
+    + Update package description. (Closes: #209757)
+    + Downgrade package importance to Optional (lintian).
+    + Use "Rules-Requires-Root: no".
+  * debian/rules: Migrate to dh sequencer. (Closes: #999248)
+    + Should also fix reproducibility. (Closes: #990795)
+    + Strip option is automatically handled. (Closes: #437372)
+  * debian/: Apply "wrap-and-sort -abst".
+  * Drop all maintscripts, no longer useful.
+  * debian/copyright: Rewritten in machine-readable format.
+  * debian/source/format: Use "3.0 (quilt)" format.
+    + Convert all direct changes into a patch file.
+  * debian/patches: Drop all old patches.
+    - Drop patch on Makefile, no longer used after autotools migration.
+    - Drop patch on old HP UX, not useful for Debian.
+    - Drop patch on IPv6, already merged in new release.
+    - Drop patch on man pages, merged in new release.
+    - Drop patch on QNX, not useful in Debian / unsupportable.
+    - Drop patch on custom Debian version string.
+    + Keep some patches from Philip Hazel on support.c and id_parse.c.
+
+ -- Boyuan Yang <byang@debian.org>  Sun, 02 Jan 2022 14:55:27 -0500
+
+libident (0.22-4) unstable; urgency=medium
+
+  * Take over package maintenance via ITS process.
+    (Closes: #1001288)
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 21 Dec 2021 21:02:51 -0500
+
+libident (0.22-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Move from obsolete Source-Version substvar to binary:Version.
+    (Closes: #833195)
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 11 Nov 2016 13:19:51 +0000
+
+libident (0.22-3) unstable; urgency=low
+
+  * acknowledge NMUs.
+    closes:#209057,#103890,#176348,#187072,#190712,#198996,#208040
+    (with a different fix for 198996, remove the bashisms instead of forcing bash)
+  * fix section and priorities.
+    closes:#209102
+  * Added IPv6 patches from http://kebo.vlsm.org/debian-ipv6/patch/libident/
+  * Added misc patches, collected in the exim fork of libident.
+  * Updated to Debian policy version 3.6.1.
+  * fix XSI:isms in shell tests and deprecated head usage.
+    closes:#256234
+  * Include section info in package.
+    closes:#288750
+  * Take options out of $(AR) in Makefile, to facilitate cross-building.
+    closes:#282911
+  * Upload of new version mentioned in #231723 will follow after checking it...
+
+ -- Paul Slootman <paul@debian.org>  Fri, 04 Mar 2005 15:16:38 +0100
+
+libident (0.22-2.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Remove obsolete 'undef LD_PRELOAD', to get the source building on
+    the autobuilders. (Closes: #209057)
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun,  7 Sep 2003 13:24:18 +0200
+
+libident (0.22-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add missing manpage symlinks. (Closes: #103890)
+  * Rebuilding library should fix prelinking problem. (Closes: #176348)
+  * New upload will end up in the pool archive structure.
+    Not really a bug, but it will solve it.  (Closes: #187072)
+  * Fix typo in in.identtestd(8). (Closes: #190712)
+  * Set SHELL=/bin/bash in debian/rules to avoid build errors when using
+    a POSIX shell.  Patch from Göran Weinholt.  (Closes: #198996)
+  * Add -D_REENTRANT when compiling the static library, to make sure the
+    package follow Debian policy 11.2. (Closes: #208040)
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 31 Aug 2003 19:09:22 +0200
+
+libident (0.22-2) unstable; urgency=low
+
+  * updated to debian policy version 3.0.1.
+
+ -- Paul Slootman <paul@debian.org>  Thu, 28 Oct 1999 16:45:24 +0200
+
+libident (0.22-1) unstable; urgency=low
+
+  * new upstream source.
+  * added workaround for ident servers that return a different format string,
+    i.e. "%u,%U,%g,%G,%l,%L,%p,%c,%C" (Red Hat 5.0?) to prevent possible
+    segmentation violation. Fix obtained from exim mailing list, originally
+    from Darrell Fuhriman <darrell@grumblesmurf.net>.
+
+ -- Paul Slootman <paul@debian.org>  Wed, 13 Jan 1999 13:11:30 +0100
+
+libident (0.21-7) unstable; urgency=low
+
+  * fixed the shlibs dependency version number.
+  * updated to debian policy version 2.4.1.4.
+
+ -- Paul Slootman <paul@debian.org>  Thu,  1 Oct 1998 09:20:56 +0200
+
+libident (0.21-6) unstable; urgency=low
+
+  * provide versionless .so link in -dev package. fixes:#26453
+  * provide symlink /usr/doc/libident-dev to libident in -dev package.
+
+ -- Paul Slootman <paul@debian.org>  Mon,  7 Sep 1998 15:46:20 +0200
+
+libident (0.21-5) unstable; urgency=low
+
+  * Didn't conform to policy (no separate -dev package). fixes:#22092
+  * libident-dev now contains the man3 manpage, the include file, and the
+    static library
+  * libident now contains the tester program and the shared library.
+  * manpage ident.3 now compressed. fixes:#20342
+  * debian/files and debian/substvars now removed in clean target. fixes:#25403
+
+ -- Paul Slootman <paul@debian.org>  Tue, 25 Aug 1998 10:07:48 +0200
+
+libident (0.21-4) unstable; urgency=high
+
+  * new maintainer
+  * don't strip libs _completely_! fixes #17670,#17009,16487
+  * added dependency info
+  * wrote manpage for in.identtestd
+  * should now adhere to debian policy version 2.4.0.0
+
+ -- Paul Slootman <paul@debian.org>  Thu, 19 Mar 1998 18:53:23 +0100
+
+libident (0.21-3) unstable; urgency=low
+
+  * Changed architecture to "all" from i386.  Couldn't see any reason not
+    to.  If anyone knows different, speak up.  Closes Bug #13700.
+
+ -- Rob Browning <rlb@cs.utexas.edu>  Thu, 11 Dec 1997 00:19:27 -0600
+
+libident (0.21-2) unstable; urgency=low
+
+  * new maintainer
+  * recompiled for libc6
+  * strip libs and binaries
+
+ -- Rob Browning <rlb@cs.utexas.edu>  Mon,  8 Dec 1997 18:52:07 -0600
+
+libident (0.21-1) unstable; urgency=low
+
+  * new upstream source
+
+ -- Dale Scheetz <dwarf@polaris.net>  Thu, 20 Feb 1997 15:17:38 -0500
+
+libident (0.17-4) unstable; urgency=low
+
+  * changed architecture from all to i386
+
+ -- Dale Scheetz <dwarf@polaris.net>  Fri, 27 Sep 1996 09:26:20 -0400
+
+libident (0.17-3) unstable; urgency=low
+
+  * Updated source package to Standards-Version 2.1.0.0.
+
+ -- Dale Scheetz <dwarf@polaris.net>  Thu, 26 Sep 1996 18:46:11 -0400
+
+Libident 0.17 Debian 2 - dcs
+
+*updated architecture and naming in debian.rules/control
+
+Libident 0.17 Debian 1 - dcs
+
+*upgraded to lates version
+
+Libident 0.16 Debian 2 - dcs
+
+*Rebuild as ELF
+*New package maintainer: Dale Scheetz <dwarf@polaris.net>
+
+Libident 0.16 Debian 1 - iwj
+Initial release, tested using built-in test program.

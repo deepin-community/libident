@@ -1,0 +1,56 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libident
+Source: https://www.remlab.net/files/libident/
+
+Files: *
+Copyright:
+ Peter Eriksson <pen@lysator.liu.se> (1992-1997)
+ Pär Emanuelsson <pell@lysator.liu.se> (1993)
+ Paul Slootman <paul@debian.org>
+ Rémi Denis-Courmont <rdenis@simphalempin.com> (2003-2004)
+ Nicolas Rachinsky <nicolas@rachinsky.de> (2004)
+License: public-domain
+ This library ('libident') is free software; unlimited permission is given
+ to copy and/or redistribute it, with or without modifications, as long as
+ authoring information is not misrepresented.
+ .
+ See AUTHORS for more information.
+ .
+ Some particular restrictions might apply to some files
+ (in particular, aclocal.m4 and Makefile.in).
+ In such circumstances, these restrictions are quoted at the top of the files.
+ .
+ Below is the original copyright statement from Peter Eriksson:
+ . 
+ This version of 'libident' is hereby released into the
+ Public Domain. It may be distributed for a fee or without
+ a fee. We only ask you not to pretend you wrote it.
+Comment:
+ Original author:
+  Peter Eriksson <pen@lysator.liu.se> (1992-1997)
+ Contributors:
+  Pär Emanuelsson <pell@lysator.liu.se> (1993),
+  Paul Slootman <paul@debian.org> :
+   - in.identtestd man page.
+  Rémi Denis-Courmont <rdenis@simphalempin.com> (2003-2004) :
+   - IPv6-compatible code and APIs,
+   - autotools usage.
+  Nicolas Rachinsky <nicolas@rachinsky.de> (2004) :
+   - FreeBSD bugfix.
+ Maintainer:
+  Peter Eriksson <pen@lysator.liu.se> :
+   - up to release 0.22
+  Rémi Denis-Courmont <rdenis@simphalempin.com> :
+   - as of release 0.30
+
+Files: debian/*
+Copyright:
+ 1999-2004 Paul Slootman <paul@debian.org>
+ 2022 Boyuan Yang <byang@debian.org>
+License: CC0-1.0
+Comment:
+ Rewritten in 2022.
+
+License: CC0-1.0
+ On Debian systems, the complete text of the Creative Commons Zero v1.0
+ Universal License can be found in "/usr/share/common-licenses/CC0-1.0".

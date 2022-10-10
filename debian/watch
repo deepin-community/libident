@@ -1,0 +1,4 @@
+version=4
+opts="" \
+ https://www.remlab.net/files/libident/ \
+  libident-@ANY_VERSION@\.tar\.gz debian uupdate
