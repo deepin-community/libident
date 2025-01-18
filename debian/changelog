@@ -1,8 +1,46 @@
-libident (0.32-1) UNRELEASED; urgency=medium
+libident (0.32-4) unstable; urgency=medium
 
-  * update
+  * QA upload.
+  * debian/control: Reintroduce libident-bin package to provide the
+    /usr/sbin/in.identtestd binary.
 
- -- Boyuan Yang <byang@debian.org>  Thu, 19 May 2022 10:12:21 +0800
+ -- Boyuan Yang <byang@debian.org>  Wed, 24 Apr 2024 14:13:22 -0400
+
+libident (0.32-3) unstable; urgency=medium
+
+  * QA upload.
+
+  [ Christoph Biedl ]
+  * Replace shlibs with symbols (Closes: #1065703)
+
+  [ Sebastiam Ramacher ]
+  * debian: Temporarily stop installing in.identtestd.
+    The daemon should not be part of the shared library package. It will be
+    reintroduced later in a separate binary package.
+  * debian/control:
+    - Remove Suggests: libident-dev from shared library package.
+    - Remove ${shlibs:Depends} from libident-dev
+    - Mark libident0 as MA: same
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 09 Mar 2024 11:03:29 +0100
+
+libident (0.32-2) unstable; urgency=medium
+
+  * QA upload.
+  * Orphan the package.
+
+  [ Debian Janitor ]
+  * Update standards version to 4.6.2, no changes needed.
+  * Remove field Priority on binary package libident-dev that duplicates source.
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 29 Feb 2024 14:36:48 -0500
+
+libident (0.32-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Rename libraries for 64-bit time_t transition.  Closes: #1062726
+
+ -- Benjamin Drung <bdrung@debian.org>  Wed, 28 Feb 2024 19:14:09 +0000
 
 libident (0.32-1) unstable; urgency=medium
 

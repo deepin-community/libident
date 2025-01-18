@@ -1,42 +1,60 @@
 Source: libident
-Maintainer: Boyuan Yang <byang@debian.org>
 Section: libs
 Priority: optional
-Standards-Version: 4.6.0
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 4.6.2
 Build-Depends:
+ dpkg-dev (>= 1.22.5),
  debhelper-compat (= 13),
 Rules-Requires-Root: no
 Homepage: https://www.remlab.net/files/libident/
 Vcs-Git: https://salsa.debian.org/debian/libident.git
 Vcs-Browser: https://salsa.debian.org/debian/libident
-
-Package: libident
-Architecture: any
-Depends:
- ${misc:Depends},
- ${shlibs:Depends},
-Suggests:
- libident-dev,
-Description: simple RFC1413 client library - runtime
+Description: simple RFC1413 client library
  This is a small library to interface to the Ident protocol server;
  "ident" enables a remote host to find out who's the owner of a
  network connection.
+
+Package: libident0
+X-Time64-Compat: libident
+Provides: ${t64:Provides}
+Replaces: libident
+Breaks: libident (<< ${source:Version})
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: ${source:Synopsis} (shared library)
+ ${source:Extended-Description}
  .
- /usr/sbin/in.identtestd is a small daemon (to be started from inetd)
- that does an ident lookup on you if you telnet into it. Can be used
- to verify that your Ident server is working correctly.
+ This package contrains the shared library.
 
 Package: libident-dev
 Architecture: any
 Section: libdevel
-Priority: optional
 Depends:
- libident (= ${binary:Version}),
- ${misc:Depends},
- ${shlibs:Depends},
-Description: simple RFC1413 client library - development
- This is a small library to interface to the Ident protocol server;
- "ident" enables a remote host to find out who's the owner of a
- network connection.
+ libident0 (= ${binary:Version}),
+ ${misc:Depends}
+Description: ${source:Synopsis} (development files)
+ ${source:Extended-Description}
  .
  This package provides the development header files for the library.
+
+Package: libident-bin
+Architecture: any
+Section: utils
+Replaces: libident
+Breaks: libident (<< ${source:Version})
+Provides: libident
+Depends:
+ libident0 (= ${binary:Version}),
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: ${source:Synopsis} (utilities)
+ ${source:Extended-Description}
+ .
+ This package provides /usr/sbin/in.identtestd, a small daemon
+ (to be started from inetd) that does an ident lookup on you if
+ you telnet into it. Can be used to verify whether your Ident
+ server is working correctly.
