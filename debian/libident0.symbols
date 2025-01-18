@@ -1,0 +1,15 @@
+libident.so.0 libident0 #MINVER#
+* Build-Depends-Package: libident-dev
+ id_close@Base 0.32
+ id_open@Base 0.32
+ id_open_addr@Base 0.32
+ id_parse@Base 0.32
+ id_query@Base 0.32
+ id_strdup@Base 0.32
+ id_strtok@Base 0.32
+ id_version@Base 0.32
+ ident_free@Base 0.32
+ ident_id@Base 0.32
+ ident_lookup@Base 0.32
+ ident_query@Base 0.32
+ ident_query_addr@Base 0.32

@@ -20,4 +20,4 @@ override_dh_auto_configure:
 	        --enable-testers
 
 override_dh_installdocs:
-	dh_installdocs --link-doc=libident
+	dh_installdocs --link-doc=libident0
